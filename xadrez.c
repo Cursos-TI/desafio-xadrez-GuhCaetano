@@ -3,7 +3,7 @@
 // Desafio de Xadrez - MateCheck
 // Este código desenvolve o sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição para simular os movimentos
-// da Torre, do Bispo e da Rainha no nível novato.
+// da Torre, do Bispo, da Rainha e do Cavalo.
 
 int main() {
     // Nível Novato - Movimentação das Peças
@@ -11,12 +11,14 @@ int main() {
     const int casasBispo = 5;
     const int casasTorre = 5;
     const int casasRainha = 8;
+    const int casasCavaloBaixo = 2;
+    const int casasCavaloEsquerda = 1;
 
     int contadorBispo = 1;
     int contadorRainha = 1;
 
     printf("=== Desafio de Xadrez - MateCheck ===\n");
-    printf("Nivel Novato\n\n");
+    printf("Nivel Aventureiro\n\n");
 
     // Implementação de Movimentação do Bispo
     // O Bispo se move 5 casas na diagonal superior direita.
@@ -44,6 +46,31 @@ int main() {
         printf("Esquerda\n");
         contadorRainha++;
     } while (contadorRainha <= casasRainha);
+
+    // Nível Aventureiro - Movimentação do Cavalo
+    // O Cavalo se move em "L": duas casas para baixo e uma casa para a esquerda.
+    // O loop for controla as duas etapas do movimento: primeiro vertical,
+    // depois horizontal. O loop while interno imprime cada casa percorrida.
+    printf("\nMovimento do Cavalo:\n");
+
+    for (int etapaCavalo = 1; etapaCavalo <= 2; etapaCavalo++) {
+        int contadorCavalo = 1;
+        int limiteMovimento = casasCavaloBaixo;
+
+        if (etapaCavalo == 2) {
+            limiteMovimento = casasCavaloEsquerda;
+        }
+
+        while (contadorCavalo <= limiteMovimento) {
+            if (etapaCavalo == 1) {
+                printf("Baixo\n");
+            } else {
+                printf("Esquerda\n");
+            }
+
+            contadorCavalo++;
+        }
+    }
 
     return 0;
 }
